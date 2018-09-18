@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Lab 1</title>
+		<link rel="stylesheet" href="index.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	</head>
+	<body>
+		
+
+		<main class="main">
+			<article class="card">
+				<div class="card__enter-values">
+					<form name="valuesForm" onsubmit="onFormSubmit(event);">
+						<input class="card__input" name="aValue" placeholder="Enter A value" required />
+						<input class="card__input" name="rValue" placeholder="Enter R value" required />
+						<input class="card__input" name="mValue" placeholder="Enter M value" required />
+						<input class="card__input" name="numbersAmount" placeholder="Enter numbers amount" required />
+						<button class="card__submit" type="submit">Submit</button>
+					</form>
+				</div>
+
+				<div class="card__chart">
+					<canvas id="chart" width="600" height="300"></canvas>
+				</div>
+			</article>
+		</main>
+		<script src="index.js"></script>
+	</body>
+</html>
