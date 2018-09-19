@@ -41,5 +41,10 @@ def find_period(numbers):
     
 def find_aperiodic_interval(numbers, period):
     for i in range(len(numbers)):
-        if numbers[i] == numbers[i + period]:
-            return i + period
+        if i + period < len(numbers):
+            if numbers[i] == numbers[i + period]:
+                return i + period
+        else:
+            return period    
+            
+            

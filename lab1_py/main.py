@@ -48,11 +48,11 @@ def start_algorithm(root, a, r, m, numbersAmount):
     
     show_chart(root, numbers)
     
-    expectation_label = Label(root, text = "Мат. Ожидание: " + str(round(expectation, 3))).place(x = 200, y = 420)
-    dispersion_label = Label(root, text = "Дисперсия: " + str(round(dispersion, 3))).place(x = 200, y = 440)
-    standard_deviation_label = Label(root, text = "Среднеквадратическое отклонение: " + str(round(standard_deviation, 3))).place(x = 200, y = 460)
-    period_label = Label(root, text = "Период: " + str(round(period, 3))).place(x = 200, y = 480)
-    aperiodic_interval_label = Label(root, text = "Длина отрезка апериодичности: " + str(round(aperiodic_interval, 3))).place(x = 200, y = 500)
+    expectation_label = Label(root, text = "Мат. Ожидание: " + str(round(expectation, 3)), height = 1, width = 50, anchor = 'w').place(x = 200, y = 420)
+    dispersion_label = Label(root, text = "Дисперсия: " + str(round(dispersion, 3)), height = 1, width = 50, anchor = 'w').place(x = 200, y = 440)
+    standard_deviation_label = Label(root, text = "Среднеквадратическое отклонение: " + str(round(standard_deviation, 3)), height = 1, width = 50, anchor = 'w').place(x = 200, y = 460)
+    period_label = Label(root, text = "Период: " + str(round(period, 3)), height = 1, width = 50, anchor = 'w').place(x = 200, y = 480)
+    aperiodic_interval_label = Label(root, text = "Длина отрезка апериодичности: " + str(round(aperiodic_interval, 3)), height = 1, width = 50, anchor = 'w').place(x = 200, y = 500)
 
 def initialize_window():
     root = Tk()
