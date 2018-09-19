@@ -30,6 +30,10 @@ function findPeriod() {
 	return period;
 }
 
+function findAperiodicLength() {
+	
+}
+
 function initializeChart() {
 	if (myChart) {
 		myChart.destroy();
@@ -93,6 +97,14 @@ function initializeChart() {
 	});
 }
 
+function showResults(m, d, p) {
+	const cardResults = document.getElementById("card__results");
+	cardResults.style.display = 'block';
+	
+	const expectation = document.getElementById("expectation");
+	expectation.innerText += m;
+}
+
 function onFormSubmit(event) {
 	event.preventDefault();
 	const a = parseInt(document.valuesForm.aValue.value);
@@ -107,16 +119,10 @@ function onFormSubmit(event) {
 	console.log(numbers);
 
 	const expectation = findExpectation();
-
-	console.log(expectation);
-
-	const dispersion = findDispersion(expectation);
-
-	console.log(dispersion);
-	
+	const dispersion = findDispersion(expectation);	
 	const period = findPeriod();
-	
-	console.log(period);
 
 	initializeChart();
+	
+	showResults(expectation, dispersion, period);
 }
