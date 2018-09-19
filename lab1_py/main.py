@@ -30,7 +30,7 @@ def show_chart(root, numbers):
     
     figure = Figure(figsize = (6, 4), dpi = 100)
     a = figure.add_subplot(111)
-    a.bar(intervals, frequencies, barLength)
+    a.bar(intervals, frequencies, barLength, color = '#90CAF9', edgecolor = '#1976D2')
     canvas = FigureCanvasTkAgg(figure, root)
     canvas.show()
     canvas.get_tk_widget().place(x = 200, y = 10)

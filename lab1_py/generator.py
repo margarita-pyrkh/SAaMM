@@ -32,7 +32,10 @@ def find_standard_deviation(dispersion):
 def find_period(numbers):
     compareValue = numbers[len(numbers) - 1]
     firstIndex = numbers.index(compareValue)
-    secondIndex = numbers.index(compareValue, firstIndex + 1)
+    try:
+        secondIndex = numbers.index(compareValue, firstIndex + 1)
+    except ValueError:
+        return len(numbers) - firstIndex
     return secondIndex - firstIndex
     
     
