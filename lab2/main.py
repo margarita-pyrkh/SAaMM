@@ -78,7 +78,27 @@ def exponential_algorithm(page, lambdaValue, numbersAmount):
         distribution.append(x)
     show_chart(page, distribution)
     show_results(page, distribution)
-
+    
+    
+def gamma_algorithm(page, lambdaValue, eta, numbersAmount):
+    numbers = generate_numbers(A_VALUE, R_VALUE, M_VALYE, numbersAmount * eta)
+    distribution = []
+    for i in range(numbersAmount):
+        x = -(1 / lambdaValue) * sum(math.log(numbers[i + j]) for j in range(0, eta))
+        distribution.append(x)
+    show_chart(page, distribution)
+    show_results(page, distribution)
+    
+    
+def triangle_algorithm(page, a, b, numbersAmount):
+    numbers = generate_numbers(A_VALUE, R_VALUE, M_VALYE, numbersAmount * 2)
+    distribution = []
+    for i in range(0, len(numbers), 2):
+        x = a + (b - a) * max(numbers[i], numbers[i + 1])
+        distribution.append(x)
+    show_chart(page, distribution)
+    show_results(page, distribution)
+    
 
 def initialize_window():
     root = Tk()
@@ -147,6 +167,42 @@ def initialize_window():
     exponential_button = Button(page3, text = "Рассчитать", width = 19,
         command = lambda: exponential_algorithm(page3, float(lambda_value_input.get()), int(exponential_n_input.get())))
     exponential_button.place(x = 10, y = 100)
+    
+    
+    gamma_distribution_label = Label(page4, text = "Гамма-распределение").place(x = 10, y = 10)
+    gamma_lambda_label = Label(page4, text = "Параметр λ").place(x = 10, y = 40)
+    gamma_lambda_input = Entry(page4, width = 10)
+    gamma_lambda_input.place(x = 110, y = 40)
+    
+    eta_value_label = Label(page4, text = "Параметр η").place(x = 10, y = 70)
+    eta_value_input = Entry(page4, width = 10)
+    eta_value_input.place(x = 110, y = 70)
+    
+    gamma_n_label = Label(page4, text = "Количество N").place(x = 10, y = 100)
+    gamma_n_input = Entry(page4, width = 10)
+    gamma_n_input.place(x = 110, y = 100)
+    
+    gamma_button = Button(page4, text = "Рассчитать", width = 19,
+        command = lambda: gamma_algorithm(page4, float(gamma_lambda_input.get()), int(eta_value_input.get()), int(gamma_n_input.get())))
+    gamma_button.place(x = 10, y = 130)
+    
+    
+    triangle_distribution_label = Label(page5, text = "Треугольное распределение").place(x = 10, y = 10)
+    triangle_a_label = Label(page5, text = "Параметр a").place(x = 10, y = 40)
+    triangle_a_input = Entry(page5, width = 10)
+    triangle_a_input.place(x = 110, y = 40)
+    
+    triangle_b_label = Label(page5, text = "Параметр b").place(x = 10, y = 70)
+    triangle_b_input = Entry(page5, width = 10)
+    triangle_b_input.place(x = 110, y = 70)
+    
+    triangle_n_label = Label(page5, text = "Количество N").place(x = 10, y = 100)
+    triangle_n_input = Entry(page5, width = 10)
+    triangle_n_input.place(x = 110, y = 100)
+    
+    triangle_button = Button(page5, text = "Рассчитать", width = 19,
+        command = lambda: triangle_algorithm(page5, float(triangle_a_input.get()), float(triangle_b_input.get()), int(triangle_n_input.get())))
+    triangle_button.place(x = 10, y = 130)
 
     root.mainloop()
 
