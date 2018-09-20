@@ -64,7 +64,6 @@ def gaussian_algorithm(page, mx, sigma, numbersAmount):
     distribution = []
     for i in range(numbersAmount):
         sub_numbers = numbers[i:i + N]
-        print(sub_numbers)
         x = mx + sigma * math.sqrt(12 / numbersAmount) * reduce((lambda a, b: a + (b - numbersAmount / 2)), sub_numbers)
         distribution.append(x)
     show_chart(page, distribution)
@@ -72,7 +71,14 @@ def gaussian_algorithm(page, mx, sigma, numbersAmount):
     
     
 def exponential_algorithm(page, lambdaValue, numbersAmount):
-    return 0;
+    numbers = generate_numbers(A_VALUE, R_VALUE, M_VALYE, numbersAmount)
+    distribution = []
+    for i in range(numbersAmount):
+        x = -(1 / lambdaValue) * math.log(numbers[i])
+        distribution.append(x)
+    show_chart(page, distribution)
+    show_results(page, distribution)
+
 
 def initialize_window():
     root = Tk()
@@ -139,7 +145,7 @@ def initialize_window():
     exponential_n_input.place(x = 110, y = 70)
     
     exponential_button = Button(page3, text = "Рассчитать", width = 19,
-        command = lambda: exponential_algorithm(page3, int(lambda_value_input.get()), float(exponential_n_input.get())))
+        command = lambda: exponential_algorithm(page3, float(lambda_value_input.get()), int(exponential_n_input.get())))
     exponential_button.place(x = 10, y = 100)
 
     root.mainloop()
