@@ -58,9 +58,9 @@ def gaussian_algorithm(page, mx, sigma, numbersAmount):
     N = 6
     numbers = generate_numbers(A_VALUE, R_VALUE, M_VALYE, numbersAmount * N)
     distribution = []
-    for i in range(numbersAmount):
+    for i in range(0, len(numbers), N):
         sub_numbers = numbers[i:i + N]
-        x = mx + sigma * math.sqrt(12 / numbersAmount) * reduce((lambda a, b: a + (b - numbersAmount / 2)), sub_numbers)
+        x = mx + sigma * math.sqrt(12 / N) * (sum(sub_numbers) - N / 2)
         distribution.append(x)
     show_chart(page, distribution)
     show_results(page, distribution)
