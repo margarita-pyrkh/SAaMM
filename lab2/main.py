@@ -49,11 +49,7 @@ def show_chart(page, distribution):
 
 
 def uniform_algorithm(page, a, b, numbersAmount):
-    numbers = generate_numbers(A_VALUE, R_VALUE, M_VALYE, numbersAmount)
-    distribution = []
-    for i in range(numbersAmount):
-        x = a + (b - a) * numbers[i]
-        distribution.append(x)
+    distribution = uniform_distribution(a, b, numbersAmount)
     show_chart(page, distribution)
     show_results(page, distribution)
     
@@ -96,6 +92,13 @@ def triangle_algorithm(page, a, b, numbersAmount):
     for i in range(0, len(numbers), 2):
         x = a + (b - a) * max(numbers[i], numbers[i + 1])
         distribution.append(x)
+    show_chart(page, distribution)
+    show_results(page, distribution)
+    
+    
+def simpson_algorithm(page, a, b, numbersAmount):
+    numbers = uniform_distribution(a / 2, b / 2, numbersAmount * 2)
+    distribution = list(map(sum, zip(numbers[::2], numbers[1::2])))
     show_chart(page, distribution)
     show_results(page, distribution)
     
@@ -203,6 +206,24 @@ def initialize_window():
     triangle_button = Button(page5, text = "Рассчитать", width = 19,
         command = lambda: triangle_algorithm(page5, float(triangle_a_input.get()), float(triangle_b_input.get()), int(triangle_n_input.get())))
     triangle_button.place(x = 10, y = 130)
+    
+    
+    simpson_distribution_label = Label(page6, text = "Треугольное распределение").place(x = 10, y = 10)
+    simpson_a_label = Label(page6, text = "Параметр a").place(x = 10, y = 40)
+    simpson_a_input = Entry(page6, width = 10)
+    simpson_a_input.place(x = 110, y = 40)
+    
+    simpson_b_label = Label(page6, text = "Параметр b").place(x = 10, y = 70)
+    simpson_b_input = Entry(page6, width = 10)
+    simpson_b_input.place(x = 110, y = 70)
+    
+    simpson_n_label = Label(page6, text = "Количество N").place(x = 10, y = 100)
+    simpson_n_input = Entry(page6, width = 10)
+    simpson_n_input.place(x = 110, y = 100)
+    
+    simpson_button = Button(page6, text = "Рассчитать", width = 19,
+        command = lambda: simpson_algorithm(page6, float(simpson_a_input.get()), float(simpson_b_input.get()), int(simpson_n_input.get())))
+    simpson_button.place(x = 10, y = 130)
 
     root.mainloop()
 
