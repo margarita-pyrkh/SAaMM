@@ -45,6 +45,7 @@ def start_algorithm(root, a, r, m, numbersAmount):
     standard_deviation = find_standard_deviation(dispersion)
     period = find_period(numbers)
     aperiodic_interval = find_aperiodic_interval(numbers, period)
+    indirect_indications = find_indirect_indications(numbers)
     
     show_chart(root, numbers)
     
@@ -53,6 +54,7 @@ def start_algorithm(root, a, r, m, numbersAmount):
     standard_deviation_label = Label(root, text = "Среднеквадратическое отклонение: " + str(round(standard_deviation, 3)), height = 1, width = 50, anchor = 'w').place(x = 200, y = 460)
     period_label = Label(root, text = "Период: " + str(round(period, 3)), height = 1, width = 50, anchor = 'w').place(x = 200, y = 480)
     aperiodic_interval_label = Label(root, text = "Длина отрезка апериодичности: " + str(round(aperiodic_interval, 3)), height = 1, width = 50, anchor = 'w').place(x = 200, y = 500)
+    indirect_indications_label = Label(root, text = "2K/N: " + str(round(indirect_indications, 3)) + " Pi/4: " + str(round(math.pi / 4, 3)), height = 1, width = 50, anchor = 'w').place(x = 200, y = 520)
 
 def initialize_window():
     root = Tk()

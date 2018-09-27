@@ -47,4 +47,9 @@ def find_aperiodic_interval(numbers, period):
         else:
             return period    
             
-            
+def find_indirect_indications(numbers):
+    count = 0;
+    for i in range(0, len(numbers), 2):
+        if math.pow(numbers[i], 2) + math.pow(numbers[i + 1], 2) < 1 :
+            count += 1;
+    return count * 2 / len(numbers)
