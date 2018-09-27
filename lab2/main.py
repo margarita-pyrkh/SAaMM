@@ -136,7 +136,7 @@ def initialize_window():
     n_value_input.place(x = 110, y = 100)
     
     uniform_button = Button(page1, text = "Рассчитать", width = 19,
-        command = lambda: uniform_algorithm(page1, int(a_value_input.get()), int(b_value_input.get()), int(n_value_input.get())))
+        command = lambda: uniform_algorithm(page1, float(a_value_input.get()), float(b_value_input.get()), int(n_value_input.get())))
     uniform_button.place(x = 10, y = 130)
     
     
@@ -154,7 +154,7 @@ def initialize_window():
     gaussian_n_input.place(x = 110, y = 100)
     
     gaussian_button = Button(page2, text = "Рассчитать", width = 19,
-        command = lambda: gaussian_algorithm(page2, int(mx_value_input.get()), float(sigma_input.get()), int(gaussian_n_input.get())))
+        command = lambda: gaussian_algorithm(page2, float(mx_value_input.get()), float(sigma_input.get()), int(gaussian_n_input.get())))
     gaussian_button.place(x = 10, y = 130)
     
     
